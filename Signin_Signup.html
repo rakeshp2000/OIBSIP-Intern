@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/0d1012d025.js" crossorigin="anonymous"></script>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background:linear-gradient( #2a63b4, #282727 );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #creat-account-form{
+      width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius:0;
+    }
+    .title{
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .input-group{
+      margin: 20px 0;
+      position: relative;
+    }
+    .input-group label {
+      display: inline-block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .input-group input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+    }
+    .success input{
+      border: 2px solid green;
+    }
+    .error input{
+      border: 2px solid red;
+    }
+    .input-group i{
+      position: absolute;
+      right: 10px;
+      top: 35px;
+      visibility: hidden;
+    }
+    .success i.fa-circle-check{
+      visibility: visible;
+      color: green;
+    }
+    .error i.fa-circle-exclamation{
+      color: red;
+      visibility: visible;
+    }
+    .input-group p{
+      color: red;
+      font-size: medium;
+      visibility: hidden;
+    }
+    .error p{
+      visibility: visible;
+    }
+    .btn{
+      width: 100%;
+      padding: 10px;
+      font-size: 15px;
+      background:linear-gradient(#0090d7, #2c3a4e );
+      border: none;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form action="#" id="creat-account-form" method="get">
+    <div class="title">
+      <h2>Create Account</h2>
+    </div>
+    <!-- USERNAME -->
+    <div class="input-group">
+     <label for="username">Name</label>
+     <input type="text" id="username" name="username" placeholder="Name">
+     <i class="fa-solid fa-circle-check"></i>
+     <i class="fa-solid fa-circle-exclamation"></i>
+     <p>error</p>
+  </div>
+    <!-- EMAIL -->
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input type="email" name="useremail" id="email" placeholder="Email">
+      <i class="fa-solid fa-circle-check"></i>
+      <i class="fa-solid fa-circle-exclamation"></i>
+     <p></p>
+    </div>
+    <!-- PASSWORD -->
+    <div class="input-group">
+      <label for="password">Password</label>
+       <input type="password" name="password" id="password" placeholder="password">
+       <i class="fa-solid fa-circle-check"></i>
+       <i class="fa-solid fa-circle-exclamation"></i>
+       <p></p>
+    </div>
+    <!-- CONFORM PASSWORD -->
+    <div class="input-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" name="password" id="confirm-password" placeholder=" Password">
+      <i class="fa-solid fa-circle-check"></i>
+      <i class="fa-solid fa-circle-exclamation"></i>
+     <p></p>
+    </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+<!-- Java Script -->
+  <script>
+    let form = document.querySelector("#creat-account-form")
+    let usernameinput = document.querySelector("#username")
+    let emailinput = document.querySelector("#email")
+    let passwordinput = document.querySelector("#password")
+    let confirmpasswordinput = document.querySelector("#confirm-password")
+
+    form.addEventListener("submit", (e)=>{
+      e.preventDefault();
+
+      validateform();
+    });
+    function validateform(){
+      // USERNAME
+      if(usernameinput.value.trim() == ""){
+        setError(usernameinput, "Name Cant Be Empty")
+      }else if(usernameinput.value.trim().length <3 || usernameinput.value.trim().length > 15){
+        setError(usernameinput, "Name Must be min 3 Max 15 car")
+      }else{
+        setSucess(usernameinput)
+      }
+      // EMAIL
+      if(emailinput.value.trim() == ""){
+        setError(emailinput, "Provide Valid Email Adress")
+      }else{
+        setSucess(emailinput)
+      }
+      // PASSWORD
+      if(passwordinput.value.trim() == ""){
+        setError(passwordinput, "Password Required")
+      }else if(passwordinput.value.trim().length < 5 || passwordinput.value.trim().length > 18 ){
+        setError(passwordinput, "Min 5 Max 18 car")
+      }else{
+        setSucess(passwordinput)
+      }
+      // CONFORM PASSWORD
+      if(confirmpasswordinput.value.trim() == ""){
+        setError(confirmpasswordinput, "Password Cant Be Empty")
+      }else if( confirmpasswordinput.value !== passwordinput.value){
+        setError(confirmpasswordinput, "Password Dosn't match")
+      }else{
+        setSucess(confirmpasswordinput)
+      }
+    }
+    function setError(element,errorMessage){
+      let parent = element.parentElement ;
+      if(parent.classList.contains("success")){
+        parent.classList.remove("success")
+      }
+      parent.classList.add("error");
+      let paragraph = parent.querySelector("p")
+      paragraph.textContent = errorMessage
+    }
+    function setSucess(element){
+      let parnt = element.parentElement;
+      if(parnt.classList.contains("error")){
+        parnt.classList.remove("error")
+      }
+      parnt.classList.add("success")
+    }
+  </script>
+</body>
+</html>
