@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            height: 100vh;
+            background:linear-gradient(#171717, #2c3a4e );
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .container {
+            border: 1px solid rgb(111, 109, 109);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow:0px 4px 15px ;
+            background:linear-gradient(#202020, #3a4452 );
+        }
+        .button {
+            width: 60px;
+            padding:20px ;
+            margin: 0px 3px;
+            border-radius: 5px;
+            border: 2px solid black;
+            cursor: pointer;
+            font-weight: bolder;
+            box-shadow: -8px -8px 15px rgb(33, 32, 32) ;
+        }
+        .button:hover{
+            background: linear-gradient(#e8edf4, #8f9094);
+            transition: 0.4s;
+        }
+        .fulbtn {
+            width: 130px;
+        }
+        #clr{
+            background-color: #f59906;
+            color: aliceblue;
+        }
+        #clr1{
+            background-color: #a0a0a0;
+        }
+        #input {
+            text-align: end;
+            width: 270px;
+            height: 70px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            
+            box-shadow: -8px -8px 15px rgb(33, 32, 32) ;
+        }
+        #input::placeholder{
+            color: black;
+        }
+        .text{
+            text-align: center;
+        }
+        .row {
+            margin: 8px 0;
+
+        }
+        .row #input {
+            padding: 10px 0px;
+            border: 1px solid black;
+            font-size: 19px;
+        }
+        .text {
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text">Calculater</h1> <br>
+    <div class="container">
+        <div class="row"><input type="text" id="input" placeholder="0"></div>
+         <div class="row">
+            <button class="button" id="clr1">AC</button>
+            <button class="button" id="clr1">%</button>
+            <button class="button" id="clr1">CL</button>
+            <button class="button" id="clr">/</button>
+         </div>
+         <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button" id="clr">-</button>
+         </div>
+         <div class="row">
+            <button class="button">6</button>
+            <button class="button">5</button>
+            <button class="button">4</button>
+            <button class="button" id="clr">*</button>
+         </div>
+         <div class="row">
+            <button class="button">3</button>
+            <button class="button">2</button>
+            <button class="button">1</button>
+            <button class="button" id="clr">+</button>
+         </div>
+         <div class="row">
+            <button class="button fulbtn">0</button>
+            <button class="button">.</button>
+            <button class="button " id="clr">=</button>
+         </div>
+    </div>
+    <script>
+        let string = ""
+        let inputfild = document.getElementById("input")
+        let buttons = document.querySelectorAll(".button")
+        let arr = Array.from(buttons)
+        arr.forEach((button)=>{
+            button.addEventListener("click",(e)=>{
+                if(e.target.innerHTML == "="){
+                    string = eval(string);
+                    inputfild.value = string;
+                }else if(e.target.innerHTML == "AC"){
+                    string = "";
+                    inputfild.value = string;
+                }else if(e.target.innerHTML == "CL"){
+                    string = string.substring(0,string.length-1);
+                    inputfild.value = string;
+                }
+                else{
+                    string += e.target.innerHTML
+                    inputfild.value = string;
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>
