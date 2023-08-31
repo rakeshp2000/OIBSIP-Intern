@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/0d1012d025.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            background-color: #1b1c1c;
+            display: flex;
+            justify-content: center;
+        }
+        #main{
+            width: 90%;
+            height: 1000px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .box{
+            width: 100%;
+            background-color: #0800ff;
+        }
+        .one{
+            background-color: black;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .one i{
+            font-size: 30px;
+        }
+        .one p{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .two{
+            background-color: white;
+            height: 300px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .two p{
+            color: black;
+            text-align: justify;
+        }
+        .two img{
+            width: 450px;
+            
+        }
+        .three{
+            background-color: black;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .foot{
+            width: 60%;
+            text-align: center;
+        }
+        .foot p{
+            text-align: justify;
+        }
+        .foot .name{
+            text-align: center;
+        }
+        .foot a{
+            color: #0091ff;
+            text-decoration: none;
+        }
+        .foot a:hover{
+            color: azure;
+            text-decoration: underline;
+        }
+            color: #0091ff;
+        @media(max-width:1024px){
+            .two p{
+                font-size: 14px;
+                padding-left: 15px;
+            }
+            .two img{
+                width: 400px;
+            }
+            .foot h1{
+                font-size: 20px;
+            }
+            .foot p{
+                font-size: 13px;
+            }
+        }
+        @media(max-width:768px){
+            .two{
+                height: 250px;
+            }
+            .two p{
+                font-size: 12px;
+                padding-left: 10px;
+            }
+            .two img {
+                width: 300px;
+            }
+            .three p{
+                font-size: 11px;
+            }
+        }
+        @media(max-width:480px){
+            .one{
+                height: 150px;
+            }
+            .one i{
+            font-size: 15px;
+            }
+            .one h1{
+            font-size: 24px;
+            }
+            .one p{
+                font-size: 13px;
+            }
+            .two{
+                height: 250px;
+                flex-direction: column;
+            }
+            .three{
+                height:500px ;
+            }
+            .three .foot{
+                padding-top: 100px;
+            }
+            .two p{
+                font-size: 10px;
+                padding-left: 10px;
+            }
+            .two img{
+                width: 200px;
+            }
+            .foot h1{
+                font-size: 15px;
+            }
+            .foot p{
+                font-size: 10px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="box one">
+            <h1>Lata Mangeshkar</h1> <br>
+            <p>1929-2022</p> <br> <br>
+            <i class="fa-regular fa-circle-play"></i>
+        </div>
+        <div class="box two">
+            <p>Lata Mangeshkar is a legendary Indian playback singer, born on September 28, 1929. She's renowned for her versatile and emotive voice, lending it to numerous iconic Bollywood songs. With numerous awards, including the Bharat Ratna, India's highest civilian award, she's celebrated as one of the most influential figures in Indian music history.</p>
+            <img src="https://drive.google.com/uc?id=14Odfgqa6cZ5ad86oSMdM0oJI7ZOS5bre" alt="Lata Mangeshkar">
+        </div>
+        <div class="box three">
+            <div class="foot">
+                <h1>Biography</h1> <br>
+                <p>Lata Mangeshkar was an Indian playback singer and occasional music composer. She is considered to be the most celebrated singer in independent India and one of its most influential artists. Her voice was one of the unifying elements of the peoples of South Asia across borders. Her contribution to the Indian music industry in a career spanning eight decades gained her honorific titles such as the "Queen of Melody", "Nightingale of India", and "Voice of the Millennium".
+                    Mangeshkar recorded songs in over thirty-six Indian languages and a few foreign languages, though primarily in Hindi and her mother tongue Marathi.She received several accolades and honors throughout her career. In 1989, the Dadasaheb Phalke Award was bestowed on her by the Government of India. In 2001, in recognition of her contributions to the nation, she was awarded the Bharat Ratna, one of only three singers to receive India's highest civilian honour. In 2007, France made her an Officer of the National Order of the Legion of Honour, the country's highest civilian award.
+                    She was the recipient of three National Film Awards, 15 Bengal Film Journalists' Association Awards, four Filmfare Best Female Playback Awards, before declining further ones, two Filmfare Special Awards, the Filmfare Lifetime Achievement Award amongst others.
+                </p>
+                <br>
+                <hr> <br>
+                <p class="name">Made With <a href="https://motokeeda.com/">Rakesh Pradhan</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
