@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Web App</title>
+    <script src="https://kit.fontawesome.com/0d1012d025.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+           background-image: linear-gradient(rgb(9, 53, 82), rgb(7, 50, 68));
+        }
+        #header{
+            background-color: aliceblue;
+            width: 100%;
+            height: 60px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        #main-box{
+            width: 100%;
+            height: 550px;
+            /* background-color: #190573; */
+            display: flex;
+            padding-top: 50px;
+            justify-content: center;
+            gap: 40px;
+        }
+        .leftbox{
+            width: 25%;
+            height: 400px;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            border-radius: 3px;
+        }
+        #userinput{
+            padding: 10px 20px;
+            width: 90%;
+            margin: 10px auto;
+            border-radius: 3px;
+        }
+        #userdesc{
+            width: 90%;
+            margin: 10px auto;
+            text-emphasis: 10px;
+            padding: 12px 20px;
+            border-radius: 3px;
+        }
+        #userbtn{
+            width: 90%;
+            background-color: green;
+            height: 30px;
+            margin: 10px auto;
+            border: navajowhite;
+            border-radius: 3px;
+            color: aliceblue;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #userbtn:hover {
+            background-color: #049d9d;
+        }
+        .rightbox{
+            width: 50%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 3px;
+        }
+        .rightbox #head {
+            background-image: linear-gradient(#093552, rgb(7, 50, 68));
+            color: aliceblue;
+            display: flex;
+            justify-content: space-around;
+            /* align-items: center; */
+            border: 1px solid #093552;
+            border-bottom: 1px solid white;
+        }
+        #head p{
+            font-weight: bold;
+        }
+        .rightbox #ansbox{
+            width:100% ;
+            min-height: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+        li{
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: black;
+            margin: 5px;
+            background-color:#ffffff;
+            border-radius: 4px;
+        }
+        .rightbox i{
+            color: red;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .dlt-btn{
+            background-color: #ed5e68;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: none;
+            color: aliceblue;
+            cursor: pointer;
+        }
+        .dlt-btn:hover{
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <!-- FAST HEADER -->
+    <div id="header"><h1>To-Do List Web App</h1></div>
+    <!-- MAIN CONTENT BOX -->
+    <div id="main-box">
+        <!-- LEFT BOX -->
+        <div class="leftbox">
+            <input type="text" id="userinput" placeholder="Title">
+            <textarea name="" id="userdesc" cols="30" rows="15" placeholder="Description"></textarea>
+            <button id="userbtn">Save</button>
+        </div>
+        <!-- RIGHT BOX -->
+        <div class="rightbox">
+
+            <!-- OUTPUT -->
+            <div id="head">
+                <h2>Title</h2>
+                <p>Description</p>
+                <h3>Delete</h3>
+            </div>
+            <ul id="ansbox">
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- JAVA SCRIPT  -->
+    <script>
+         document.addEventListener("DOMContentLoaded", function(){
+            let userinput = document.getElementById("userinput");
+            let userdescinput = document.getElementById("userdesc");
+            let answeroutput = document.getElementById("ansbox");
+            let userbtn = document.getElementById("userbtn");
+
+            userbtn.addEventListener("click", function(){
+                let input = userinput.value.trim();
+                let description = userdescinput.value.trim();
+
+                if(input !== ""){
+                    let lis = document.createElement("li")
+                    lis.innerHTML= `
+                        <h2>${input}</h2>
+                        <p>${description}</p>
+                        <button class="dlt-btn">X</button>`;
+
+                        answeroutput.appendChild(lis);
+                        
+                        userinput.value = " ";
+                        userdescinput.value = " ";
+
+                        // Delete iteam
+                        const deleteButton = lis.querySelector(".dlt-btn");
+                       deleteButton.addEventListener("click", function () {
+                        answeroutput.removeChild(lis);
+                     });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
